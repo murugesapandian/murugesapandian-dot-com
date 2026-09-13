@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Raw/unprocessed source photos (not for public distribution — may include
+# identifiable bystanders from the original, uncropped shot). Only the
+# processed cutout in public/images/ is meant to be published.
+assets/source/
