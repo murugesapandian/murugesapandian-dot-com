@@ -1,115 +1,34 @@
 ---
-// Illustrated, blurred "supply chain" motif for the Hero background: warehouse
-// racks, a moving conveyor line, and drifting package nodes, in the site's
-// navy/gold palette. Purely decorative (aria-hidden). The blur + reduced
-// opacity keep it a backdrop, not a competing visual; the conveyor/package
-// motion is CSS-only so it's covered by the global prefers-reduced-motion
-// override (see global.css) without any extra handling here.
+// Procedurally-rendered "supply chain" motif (warehouse racks, a moving
+// conveyor with packages, pulsing distribution nodes) as an actual looping
+// background video, dimmed behind the Hero content. The blur is baked into
+// the video's pixels at generation time (see scripts/ for the generator) —
+// deliberately NOT a runtime CSS `filter: blur()`, which would force the
+// browser to re-blur every decoded frame of a playing video and was
+// measurably hurting paint/render performance. Purely decorative
+// (aria-hidden). Respects prefers-reduced-motion by pausing playback (see
+// main.ts) — the poster frame keeps the visual either way.
 ---
 
 <div class="supply-chain-backdrop pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-  <div class="backdrop-blurlayer absolute -inset-x-[10%] -inset-y-[15%]">
-    <!-- Warehouse rack silhouette -->
-    <svg
-      class="absolute inset-0 h-full w-full opacity-[0.16]"
-      viewBox="0 0 1600 900"
-      preserveAspectRatio="xMidYMid slice"
-      fill="none"
-    >
-      {
-        [120, 320, 520].map((x) => (
-          <g stroke="var(--color-gold)" stroke-width="2">
-            <line x1={x} y1="120" x2={x} y2="620" />
-            <line x1={x + 140} y1="120" x2={x + 140} y2="620" />
-            <line x1={x} y1="200" x2={x + 140} y2="200" />
-            <line x1={x} y1="330" x2={x + 140} y2="330" />
-            <line x1={x} y1="460" x2={x + 140} y2="460" />
-            <line x1={x} y1="590" x2={x + 140} y2="590" />
-          </g>
-        ))
-      }
-      <g stroke="var(--color-mist)" stroke-width="1.5" opacity="0.7">
-        <line x1="900" y1="150" x2="900" y2="600" />
-        <line x1="1040" y1="150" x2="1040" y2="600" />
-        <line x1="900" y1="260" x2="1040" y2="260" />
-        <line x1="900" y1="390" x2="1040" y2="390" />
-        <line x1="900" y1="520" x2="1040" y2="520" />
-      </g>
-      <!-- distribution nodes + connecting lines, echoing the gold flow line -->
-      <g stroke="var(--color-gold)" stroke-width="2" opacity="0.8">
-        <path d="M120 700 C 400 620, 700 780, 1000 660 S 1500 640, 1560 700" />
-      </g>
-      {
-        [
-          [120, 700],
-          [520, 705],
-          [1000, 660],
-          [1560, 700],
-        ].map(([cx, cy]) => (
-          <circle cx={cx} cy={cy} r="7" fill="var(--color-gold)" />
-        ))
-      }
-    </svg>
+  <video
+    class="supply-chain-video h-full w-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    poster="/videos/supply-chain-poster.jpg"
+    fetchpriority="high"
+  >
+    <source src="/videos/supply-chain-bg.webm" type="video/webm" />
+    <source src="/videos/supply-chain-bg.mp4" type="video/mp4" />
+  </video>
 
-    <!-- Conveyor line with drifting package nodes -->
-    <div class="conveyor absolute left-0 right-0" style="top: 74%;">
-      <div class="conveyor-track"></div>
-      <div class="package" style="animation-delay: 0s;"></div>
-      <div class="package" style="animation-delay: -4.5s;"></div>
-      <div class="package" style="animation-delay: -9s;"></div>
-      <div class="package" style="animation-delay: -13.5s;"></div>
-    </div>
+  <!-- Gradient overlay so hero text stays legible -->
+  <div
+    class="absolute inset-0 bg-gradient-to-r from-navy via-navy/70 to-navy/40 dark:from-navy-deep dark:via-navy-deep/75 dark:to-navy-deep/45"
+  >
   </div>
-
-  <!-- Sharp gradient overlay (not blurred) so hero text stays legible -->
-  <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/70 to-navy/40 dark:from-navy-deep dark:via-navy-deep/75 dark:to-navy-deep/45"
-  ></div>
   <div class="absolute inset-0 bg-gradient-to-t from-navy dark:from-navy-deep via-transparent to-transparent"></div>
 </div>
-
-<style>
-  .backdrop-blurlayer {
-    filter: blur(3px);
-  }
-
-  .conveyor-track {
-    height: 2px;
-    background: repeating-linear-gradient(
-      to right,
-      var(--color-gold) 0,
-      var(--color-gold) 16px,
-      transparent 16px,
-      transparent 32px
-    );
-    opacity: 0.55;
-    animation: conveyor-move 3s linear infinite;
-  }
-
-  .package {
-    position: absolute;
-    top: 50%;
-    left: -6%;
-    width: 22px;
-    height: 22px;
-    transform: translateY(-50%);
-    background: var(--color-gold-soft);
-    opacity: 0.5;
-    border-radius: 4px;
-    animation: conveyor-drift 18s linear infinite;
-  }
-
-  @keyframes conveyor-move {
-    to {
-      background-position: -32px 0;
-    }
-  }
-
-  @keyframes conveyor-drift {
-    from {
-      left: -6%;
-    }
-    to {
-      left: 106%;
-    }
-  }
-</style>

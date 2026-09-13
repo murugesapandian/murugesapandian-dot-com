@@ -5,6 +5,21 @@
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// --- Supply-chain backdrop video ------------------------------------------
+// Reduced motion: freeze on the poster-equivalent first frame instead of
+// autoplaying the loop. Also pause when the tab is hidden to save power.
+const backdropVideo = document.querySelector<HTMLVideoElement>('.supply-chain-video');
+if (backdropVideo) {
+  if (prefersReducedMotion) {
+    backdropVideo.pause();
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (prefersReducedMotion) return;
+    if (document.hidden) backdropVideo.pause();
+    else backdropVideo.play().catch(() => {});
+  });
+}
+
 // --- Theme toggle -----------------------------------------------------
 // Multiple toggle buttons can exist on a page (header + footer); all share
 // the same global data-theme attribute, so no per-button state is needed.
