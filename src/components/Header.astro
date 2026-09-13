@@ -5,15 +5,18 @@ import ThemeToggle from './ThemeToggle.astro';
 
 <header class="sticky top-0 z-50 border-b border-mist/70 bg-offwhite/90 backdrop-blur dark:border-white/10 dark:bg-navy-deep/90">
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-    <a href="#" class="flex items-center gap-2.5 shrink-0" aria-label={siteMeta.name}>
-      <img
-        src="/images/mt-logo.png"
-        alt=""
-        aria-hidden="true"
-        class="h-8 w-auto sm:h-9"
-        width="932"
-        height="636"
-      />
+    <a href="#" class="flex items-center gap-3 shrink-0" aria-label={siteMeta.name}>
+      <picture>
+        <source srcset="/images/mt-logo.webp" type="image/webp" />
+        <img
+          src="/images/mt-logo.png"
+          alt=""
+          aria-hidden="true"
+          class="h-12 w-auto sm:h-14"
+          width="608"
+          height="700"
+        />
+      </picture>
       <span class="hidden font-display text-base font-medium text-navy sm:inline dark:text-offwhite">
         {siteMeta.name}
       </span>
