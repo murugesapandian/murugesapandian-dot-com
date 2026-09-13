@@ -25,11 +25,12 @@
     <source src="/videos/supply-chain-bg.mp4" type="video/mp4" />
   </video>
 
-  <!-- Gradient overlay: only darkened enough behind the text column for
-       legibility — the rest stays clear so the video is actually visible. -->
-  <div
-    class="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/25 to-transparent dark:from-navy-deep/90 dark:via-navy-deep/30 dark:to-transparent"
-  >
-  </div>
-  <div class="absolute inset-0 bg-gradient-to-t from-navy/30 dark:from-navy-deep/35 via-transparent to-transparent"></div>
+  <!-- Gradient overlay: solidly backs the whole text column (readable
+       regardless of what's playing behind it) and only clears up around
+       the photo, where legibility isn't a concern. A plain 3-stop
+       from/via/to gradient wasn't enough — "via" sits at 50%, right where
+       the text column ends, so it had already faded too far by the time
+       text needed the backing. Explicit stops fix that. -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(11,31,58,0.93)_0%,rgba(11,31,58,0.88)_46%,rgba(11,31,58,0.4)_62%,rgba(11,31,58,0)_82%)] dark:bg-[linear-gradient(to_right,rgba(6,20,40,0.93)_0%,rgba(6,20,40,0.88)_46%,rgba(6,20,40,0.4)_62%,rgba(6,20,40,0)_82%)]"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-navy/45 dark:from-navy-deep/50 via-transparent to-transparent"></div>
 </div>

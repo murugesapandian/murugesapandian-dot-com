@@ -17,7 +17,9 @@ const { project } = Astro.props;
     )}
   </div>
 
-  <p class="mt-3 flex-1 text-sm leading-relaxed text-slate dark:text-mist/85">{project.description}</p>
+  <p class="mt-3 flex-1 text-justify text-sm leading-relaxed text-slate dark:text-mist/85">
+    {project.description}
+  </p>
 
   <ul class="mt-5 flex flex-wrap gap-2">
     {project.stack.map((item) => (

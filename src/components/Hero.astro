@@ -7,15 +7,13 @@ import SupplyChainBackdrop from './SupplyChainBackdrop.astro';
 <section class="relative flex min-h-[100svh] flex-col overflow-hidden bg-navy dark:bg-navy-deep">
   <SupplyChainBackdrop />
 
-  <div
-    class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-4 pt-20 sm:px-6 lg:flex-row lg:items-end lg:gap-8 lg:px-8 lg:pt-32"
-  >
+  <div class="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col gap-6 px-4 pt-20 sm:px-6 lg:flex-row lg:items-end lg:gap-8 lg:px-8 lg:pt-32">
     <div class="order-2 flex flex-1 flex-col justify-center gap-5 pb-10 lg:order-1 lg:gap-6 lg:pb-24">
       <p class="font-mono text-xs uppercase tracking-[0.2em] text-gold">{hero.eyebrow}</p>
       <h1 class="font-display text-4xl font-semibold text-balance text-offwhite sm:text-5xl lg:text-6xl">
         {hero.heading}
       </h1>
-      <p class="max-w-prose-wide text-lg text-mist">{hero.sub}</p>
+      <p class="max-w-prose-wide text-justify text-lg text-mist">{hero.sub}</p>
 
       <div class="flex flex-wrap gap-4">
         <a

@@ -11,7 +11,6 @@ export const siteMeta = {
   email: 'murugesapandian@gmail.com',
   linkedin: 'https://www.linkedin.com/in/murugesapandiant/',
   github: 'https://github.com/murugesapandian',
-  location: 'Bentonville, Arkansas',
 };
 
 export const nav = [
@@ -30,7 +29,7 @@ export const hero = {
   sub: 'Building the execution platforms behind large-scale retail supply chains — warehouse systems, automation, and AI-native operations.',
   ctaPrimary: { label: 'View Career Journey', href: '#journey' },
   ctaSecondary: { label: 'Connect on LinkedIn', href: siteMeta.linkedin },
-  locationLine: 'Bentonville, Arkansas · Open to relocation (Atlanta · Texas · Kansas) · US-based roles',
+  locationLine: 'Open to relocation (Atlanta · Texas · Kansas) · US-based roles',
 };
 
 export type Stat = {
@@ -50,11 +49,10 @@ export const stats: Stat[] = [
 export const about = {
   headline: 'Two decades at the intersection of warehouses, software, and scale.',
   paragraphs: [
-    'MP is a senior engineering and product leader with 20+ years building and running the execution platforms behind large-scale retail supply chains, most recently at Walmart and Sam’s Club in Bentonville, Arkansas. He has led WMS/WCS/OMS/TMS platforms across 80+ fulfillment and distribution centers, onboarded seven automation and robotics partners — Locus Robotics, Symbotic, GreyOrange, Dematic, Packsize, Sparck CVP, and IPG — and delivered $20M+ in annual cost savings with 98%+ operational accuracy and a 90% reduction in manual processing.',
+    'MP is a senior engineering and product leader with 20+ years building and running the execution platforms behind large-scale retail supply chains, most recently at Walmart and Sam’s Club. He has led WMS/WCS/OMS/TMS platforms across 80+ fulfillment and distribution centers, onboarded seven automation and robotics partners — Locus Robotics, Symbotic, GreyOrange, Dematic, Packsize, Sparck CVP, and IPG — and delivered $20M+ in annual cost savings with 98%+ operational accuracy and a 90% reduction in manual processing.',
     'He holds a Master of Computer Applications (MCA) and the PgMP® program-management credential, with executive education from IIM Ahmedabad (Supply Chain Digitization) and UC Irvine (Supply Chain Planning). Today he builds AI-native tooling — retrieval-augmented generation, MCP servers, and Claude Code-driven workflows — to make supply chain operations faster, safer, and more autonomous.',
   ],
   atAGlance: [
-    'Based in Bentonville, AR',
     'MCA, PgMP®',
     'IIM Ahmedabad',
     'UC Irvine',
@@ -112,5 +110,5 @@ export const contact = {
 };
 
 export const footer = {
-  copyright: `© ${new Date().getFullYear()} Murugesapandian Thangaraj · Bentonville, AR`,
+  copyright: `© ${new Date().getFullYear()} Murugesapandian Thangaraj`,
 };

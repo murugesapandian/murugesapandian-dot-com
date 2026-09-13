@@ -29,12 +29,6 @@ const personSchema = {
   name: siteMeta.name,
   url: siteMeta.url,
   jobTitle: 'Senior Engineering & Product Leader',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Bentonville',
-    addressRegion: 'AR',
-    addressCountry: 'US',
-  },
   sameAs: [siteMeta.linkedin, siteMeta.github].filter(Boolean),
 };
 ---
@@ -80,7 +74,9 @@ const personSchema = {
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    {preloadImages.map((href) => <link rel="preload" as="image" href={href} fetchpriority="high" />)}
+    {preloadImages.map((href) => (
+      <link rel="preload" as="image" href={href} fetchpriority="high" />
+    ))}
 
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)}></script>
   </head>

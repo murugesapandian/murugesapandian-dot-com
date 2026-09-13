@@ -6,7 +6,6 @@
 
 export type JourneyEntry = {
   employer: string;
-  location?: string;
   title?: string;
   period?: string;
   bullets?: string[];
@@ -17,7 +16,6 @@ export type JourneyEntry = {
 export const journey: JourneyEntry[] = [
   {
     employer: 'Walmart Inc. / Sam’s Club',
-    location: 'Bentonville, AR',
     title: 'Senior Software Engineer (operating at Staff / Principal / Senior Manager scope)',
     // TODO(MP): add the exact start date for this most recent role (e.g. "2019 — Present").
     period: undefined,

@@ -6,7 +6,7 @@ import { about } from '../content/site';
   <div class="reveal grid gap-12 lg:grid-cols-[1.6fr_1fr] lg:gap-16">
     <div>
       <h2 class="font-display text-3xl font-semibold text-balance sm:text-4xl">{about.headline}</h2>
-      <div class="mt-6 space-y-5 max-w-prose-wide text-base leading-relaxed text-slate dark:text-mist/90">
+      <div class="mt-6 space-y-5 max-w-prose-wide text-justify text-base leading-relaxed text-slate dark:text-mist/90">
         {about.paragraphs.map((p) => (
           <p>{p}</p>
         ))}

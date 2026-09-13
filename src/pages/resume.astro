@@ -42,7 +42,7 @@ const resumeExists = fs.existsSync(resumePath);
         </div>
       </>
     ) : (
-      <p class="mt-6 max-w-prose-wide text-base leading-relaxed text-slate dark:text-mist/90">
+      <p class="mt-6 max-w-prose-wide text-justify text-base leading-relaxed text-slate dark:text-mist/90">
         The downloadable résumé isn't posted yet. In the meantime,{' '}
         <a class="text-gold-ink underline dark:text-gold" href={`mailto:${siteMeta.email}`}>
           email {siteMeta.name}
