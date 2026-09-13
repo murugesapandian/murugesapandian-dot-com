@@ -1,0 +1,63 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import Layout from '../layouts/Layout.astro';
+import { contact, siteMeta } from '../content/site';
+
+const resumePath = path.join(process.cwd(), 'public', contact.resumeFile);
+const resumeExists = fs.existsSync(resumePath);
+---
+
+<Layout title={`Résumé — ${siteMeta.name}`} description={`Download the résumé of ${siteMeta.name}.`}>
+  <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+    <h1 class="font-display text-3xl font-semibold sm:text-4xl">Résumé</h1>
+
+    {resumeExists ? (
+      <>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a
+            href={contact.resumeFile}
+            download
+            class="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy transition hover:bg-navy hover:text-offwhite"
+          >
+            Download PDF
+          </a>
+          <a
+            href="/#contact"
+            class="rounded-full border border-mist px-6 py-3 text-sm font-semibold text-slate transition hover:border-gold hover:text-gold dark:border-white/20 dark:text-mist"
+          >
+            Get in touch
+          </a>
+        </div>
+        <div class="mt-8 overflow-hidden rounded-2xl border border-mist dark:border-white/10">
+          <object data={contact.resumeFile} type="application/pdf" class="h-[85vh] w-full">
+            <p class="p-6 text-sm text-slate dark:text-mist">
+              Your browser can't preview PDFs inline.{' '}
+              <a class="text-gold-ink underline dark:text-gold" href={contact.resumeFile}>
+                Download the résumé instead
+              </a>
+              .
+            </p>
+          </object>
+        </div>
+      </>
+    ) : (
+      <p class="mt-6 max-w-prose-wide text-base leading-relaxed text-slate dark:text-mist/90">
+        The downloadable résumé isn't posted yet. In the meantime,{' '}
+        <a class="text-gold-ink underline dark:text-gold" href={`mailto:${siteMeta.email}`}>
+          email {siteMeta.name}
+        </a>{' '}
+        directly or connect on{' '}
+        <a
+          class="text-gold-ink underline dark:text-gold"
+          href={siteMeta.linkedin}
+          target="_blank"
+          rel="noreferrer"
+        >
+          LinkedIn
+        </a>
+        .
+      </p>
+    )}
+  </section>
+</Layout>

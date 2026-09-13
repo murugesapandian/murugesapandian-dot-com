@@ -1,0 +1,20 @@
+---
+import { nav, footer } from '../content/site';
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<footer class="border-t border-mist/70 bg-offwhite py-10 dark:border-white/10 dark:bg-navy-deep">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 text-center sm:flex-row sm:justify-between sm:text-left lg:px-8">
+    <p class="text-sm text-slate/80 dark:text-mist/70">{footer.copyright}</p>
+
+    <nav aria-label="Footer" class="flex flex-wrap justify-center gap-x-5 gap-y-2">
+      {nav.map((item) => (
+        <a href={item.href} class="text-sm text-slate/80 transition hover:text-gold dark:text-mist/70">
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <ThemeToggle />
+  </div>
+</footer>

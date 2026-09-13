@@ -1,0 +1,24 @@
+---
+import { expertise } from '../content/expertise';
+---
+
+<section id="expertise" class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+  <h2 class="reveal font-display text-3xl font-semibold sm:text-4xl">Expertise</h2>
+
+  <div class="mt-10 grid gap-8 sm:grid-cols-2">
+    {expertise.map((group) => (
+      <div class="reveal">
+        <h3 class="font-mono text-xs uppercase tracking-[0.2em] text-gold-ink dark:text-gold">
+          {group.label}
+        </h3>
+        <ul class="mt-4 flex flex-wrap gap-2">
+          {group.items.map((item) => (
+            <li class="rounded-full border border-mist px-3 py-1.5 text-sm text-slate dark:border-white/15 dark:text-mist/85">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>

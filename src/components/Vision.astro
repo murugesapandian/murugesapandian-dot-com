@@ -1,0 +1,27 @@
+---
+import { vision, guidingPrinciples } from '../content/site';
+---
+
+<section id="vision" class="bg-navy py-20 dark:bg-navy-deep">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <h2 class="reveal font-display text-3xl font-semibold text-offwhite sm:text-4xl">{vision.headline}</h2>
+
+    <div class="mt-10 grid gap-6 lg:grid-cols-3">
+      {vision.columns.map((col) => (
+        <div class="reveal rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
+          <h3 class="font-mono text-xs uppercase tracking-[0.2em] text-gold">{col.label}</h3>
+          <p class="mt-4 text-sm leading-relaxed text-mist/90">{col.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <ul class="reveal mt-12 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+      {guidingPrinciples.map((principle) => (
+        <li class="flex items-start gap-2 text-sm text-mist/90">
+          <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+          <span>{principle}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

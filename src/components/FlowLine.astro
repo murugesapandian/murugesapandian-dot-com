@@ -1,0 +1,50 @@
+---
+// A thin gold "flow line" — the site's signature motif. It draws itself on
+// once when scrolled into view (see .flow-path in main.ts / global.css) and
+// otherwise renders fully visible for no-JS / reduced-motion users.
+interface Props {
+  variant?: 'hero' | 'timeline';
+  class?: string;
+}
+
+const { variant = 'hero', class: className = '' } = Astro.props;
+---
+
+{variant === 'hero' ? (
+  <svg
+    class={`flow-line-hero ${className}`}
+    viewBox="0 0 240 400"
+    fill="none"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path
+      class="flow-path"
+      d="M20 0 C 20 80, 220 60, 220 140 S 20 220, 20 280 S 220 340, 220 400"
+      stroke="var(--color-gold)"
+      stroke-width="2"
+      pathlength="1"
+      stroke-dasharray="1"
+    />
+  </svg>
+) : (
+  <svg
+    class={`flow-line-timeline ${className}`}
+    viewBox="0 0 4 100"
+    fill="none"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <line
+      class="flow-path"
+      x1="2"
+      y1="0"
+      x2="2"
+      y2="100"
+      stroke="var(--color-gold)"
+      stroke-width="2"
+      pathlength="1"
+      stroke-dasharray="1"
+    />
+  </svg>
+)}

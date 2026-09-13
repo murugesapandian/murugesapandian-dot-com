@@ -1,0 +1,43 @@
+---
+import { hero } from '../content/site';
+import StatStrip from './StatStrip.astro';
+import FlowLine from './FlowLine.astro';
+---
+
+<section class="relative overflow-hidden bg-navy dark:bg-navy-deep">
+  <div class="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8 lg:py-28">
+    <div>
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-gold">{hero.eyebrow}</p>
+      <h1 class="mt-4 font-display text-4xl font-semibold text-offwhite text-balance sm:text-5xl lg:text-6xl">
+        {hero.heading}
+      </h1>
+      <p class="mt-6 max-w-prose-wide text-lg text-mist">{hero.sub}</p>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a
+          href={hero.ctaPrimary.href}
+          class="rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy transition hover:bg-offwhite"
+        >
+          {hero.ctaPrimary.label}
+        </a>
+        <a
+          href={hero.ctaSecondary.href}
+          target="_blank"
+          rel="noreferrer"
+          class="rounded-full border border-gold/60 px-6 py-3 text-sm font-semibold text-offwhite transition hover:border-gold hover:text-gold"
+        >
+          {hero.ctaSecondary.label}
+        </a>
+      </div>
+
+      <p class="mt-6 text-sm text-mist/70">{hero.locationLine}</p>
+    </div>
+
+    <div class="relative">
+      <FlowLine variant="hero" class="pointer-events-none absolute inset-0 -z-0 h-full w-full opacity-50" />
+      <div class="relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
+        <StatStrip />
+      </div>
+    </div>
+  </div>
+</section>

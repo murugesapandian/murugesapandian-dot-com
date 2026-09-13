@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { siteMeta } from '../content/site';
+---
+
+<Layout title={`Page not found — ${siteMeta.name}`} index={false}>
+  <section class="mx-auto flex max-w-2xl flex-col items-center px-4 py-28 text-center sm:px-6 lg:px-8">
+    <p class="font-mono text-sm uppercase tracking-[0.2em] text-gold-ink dark:text-gold">404</p>
+    <h1 class="mt-4 font-display text-3xl font-semibold sm:text-4xl">This page took a wrong turn.</h1>
+    <p class="mt-4 max-w-prose-wide text-base leading-relaxed text-slate dark:text-mist/90">
+      The page you're looking for doesn't exist or has moved.
+    </p>
+    <a
+      href="/"
+      class="mt-8 rounded-full bg-gold px-6 py-3 text-sm font-semibold text-navy transition hover:bg-navy hover:text-offwhite"
+    >
+      Back to the homepage
+    </a>
+  </section>
+</Layout>

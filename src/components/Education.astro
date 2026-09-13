@@ -1,0 +1,21 @@
+---
+import { education } from '../content/education';
+---
+
+<section id="education" class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+  <h2 class="reveal font-display text-3xl font-semibold sm:text-4xl">Education & Credentials</h2>
+
+  <ul class="reveal mt-10 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+    {education.map((entry) => (
+      <li class="flex items-start gap-3 text-sm text-slate dark:text-mist/90">
+        <span class="mt-1.5 size-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+        <span>
+          {entry.label}
+          {entry.inProgress && (
+            <span class="ml-2 text-xs italic text-slate/60 dark:text-mist/50">(in progress)</span>
+          )}
+        </span>
+      </li>
+    ))}
+  </ul>
+</section>

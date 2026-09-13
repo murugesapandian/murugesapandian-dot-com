@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1F3A" />
+      <stop offset="100%" stop-color="#061428" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <path
+    d="M100 0 C 100 160, 620 120, 620 280 S 100 440, 100 560"
+    fill="none"
+    stroke="#C9A227"
+    stroke-width="2"
+    opacity="0.35"
+  />
+
+  <circle cx="140" cy="140" r="54" fill="none" stroke="#C9A227" stroke-width="3" />
+  <text
+    x="140"
+    y="154"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="46"
+    font-weight="600"
+    fill="#C9A227"
+  >MP</text>
+
+  <text
+    x="100"
+    y="300"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="58"
+    font-weight="600"
+    fill="#F7F7F4"
+  >Murugesapandian Thangaraj</text>
+
+  <text
+    x="100"
+    y="350"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="26"
+    fill="#DCE1E8"
+  >Senior Engineering &amp; Product Leader · Supply Chain Technology</text>
+
+  <text
+    x="100"
+    y="540"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="22"
+    letter-spacing="2"
+    fill="#C9A227"
+  >MURUGESAPANDIAN.COM</text>
+</svg>
