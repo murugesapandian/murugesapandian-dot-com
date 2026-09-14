@@ -22,7 +22,7 @@ import ThemeToggle from './ThemeToggle.astro';
       </span>
     </a>
 
-    <nav aria-label="Primary" class="hidden items-center gap-6 lg:flex">
+    <nav aria-label="Primary" class="hidden items-center gap-6 xl:flex">
       {nav.map((item) => (
         <a
           data-nav-link
@@ -34,7 +34,7 @@ import ThemeToggle from './ThemeToggle.astro';
       ))}
     </nav>
 
-    <div class="hidden items-center gap-3 lg:flex">
+    <div class="hidden items-center gap-3 xl:flex">
       <ThemeToggle />
       <a
         href="/resume"
@@ -44,7 +44,7 @@ import ThemeToggle from './ThemeToggle.astro';
       </a>
     </div>
 
-    <div class="flex items-center gap-2 lg:hidden">
+    <div class="flex items-center gap-2 xl:hidden">
       <ThemeToggle />
       <button
         id="menu-toggle"
@@ -72,7 +72,7 @@ import ThemeToggle from './ThemeToggle.astro';
     id="mobile-menu"
     aria-label="Mobile"
     hidden
-    class="border-t border-mist/70 px-4 py-4 lg:hidden dark:border-white/10"
+    class="border-t border-mist/70 px-4 py-4 xl:hidden dark:border-white/10"
   >
     <ul class="flex flex-col gap-4">
       {nav.map((item) => (
